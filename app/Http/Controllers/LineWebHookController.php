@@ -35,7 +35,7 @@ class LineWebHookController extends Controller
             if ($event['message']['type'] == 'sticker') {
                 $response = $bot->replyText($event['replyToken'], 'package_Id = '
                     . $event['message']['packageId']
-                    . 'and'
+                    . ' and '
                     . 'stickerId = '
                     .$event['message']['stickerId']);
             }
@@ -43,10 +43,9 @@ class LineWebHookController extends Controller
         return response()->json([]);
     }
 
-    public function liff() {
-        $user = Auth::user();
-
-        return view('line.welcome', ['user' => $user]);
+    public function liff()
+    {
+        return view('line.welcome');
     }
 
     /**
