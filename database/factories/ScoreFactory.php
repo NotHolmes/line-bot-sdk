@@ -17,6 +17,7 @@ class ScoreFactory extends Factory
     public function definition()
     {
         return [
+            'name' => fake()->name(),
             'score' => fake()->numberBetween(0, 100),
         ];
     }

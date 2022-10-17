@@ -22,3 +22,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 // Route::apiResource('webhook', \App\Http\Controllers\LineWebHookController::class);
 
 Route::post('/webhook', [LineWebHookController::class, 'handle']);
+
+Route::apiResource('create',  );

@@ -6,8 +6,8 @@
     <title>LIFF - LINE Front-end Framework</title>
     <style>
         body { margin: 16px }
-        button, img { display: none; width: 40% }
-        button { padding: 16px }
+        img {width: 40% ; align-items: center}
+        button { padding: 16px; align-items: center}
     </style>
 </head>
 <body>
@@ -16,8 +16,8 @@
 <p id="userid"></p>
 <p id="name"></p>
 
-<button id="btnLogIn" onclick="logIn()" class="">Log In</button>
-<button id="btnLogOut" onclick="logOut()">Log Out</button>
+<button id="btnLogIn" onclick="logIn()" class="background:green;color:white;">Log In</button>
+<button id="btnLogOut" onclick="logOut()" class="background:green ;color:white;">Log Out</button>
 <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
 <script>
     function logOut() {

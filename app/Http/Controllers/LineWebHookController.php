@@ -27,9 +27,19 @@ class LineWebHookController extends Controller
         $bot = new \LINE\LINEBot($httpClient, ['channelSecret' => env('LINE_BOT_CHANNEL_SECRET')]);
 
         foreach ($request['events'] as $event) {
+//            if ($event['message']['type'] == 'text' && $event['message']['text'] == 'login') {
+//                $response = $bot->replyText($event['replyToken'], "login");
+//                $this->login()
+//            }
+//
+//            if ($event['message']['type'] == 'text' && $event['message']['text'] == 'logout') {
+//                $response = $bot->replyText($event['replyToken'], "logout");
+//                $this->logout()
+//            }
+
             if ($event['message']['type'] == 'text' && $event['message']['text'] == 'give me 10 scores') {
                 $score = Score::inRandomOrder()->first();
-                $response = $bot->replyText($event['replyToken'], $score->score);
+                $response = $bot->replyText($event['replyToken'], $score->name.' gets '.$score->score.' points.');
             }
 
             if ($event['message']['type'] == 'sticker') {
@@ -43,9 +53,27 @@ class LineWebHookController extends Controller
         return response()->json([]);
     }
 
+    public function create(Request $request){
+        $num = $request->input('score');
+        $name = $request->input('name');
+
+        $score = new Score();
+        $score['name'] = $name;
+        $score['score'] = $num;
+        $score->save();
+    }
+
     public function liff()
     {
         return view('line.welcome');
+    }
+
+    public function login(){
+        return view('line.login');
+    }
+
+    public function logout(){
+        return view('line.logout');
     }
 
     /**

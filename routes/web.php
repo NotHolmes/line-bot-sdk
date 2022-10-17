@@ -18,3 +18,7 @@ Route::get('/', function () {
 });
 
 Route::get('/liff', [\App\Http\Controllers\LineWebHookController::class, 'liff']);
+
+Route::get('/liff/login', [\App\Http\Controllers\LineWebHookController::class, 'login']);
+
+Route::get('/liff/logout', [\App\Http\Controllers\LineWebHookController::class, 'logout']);
