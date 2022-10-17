@@ -53,16 +53,6 @@ class LineWebHookController extends Controller
         return response()->json([]);
     }
 
-    public function create(Request $request){
-        $num = $request->input('score');
-        $name = $request->input('name');
-
-        $score = new Score();
-        $score['name'] = $name;
-        $score['score'] = $num;
-        $score->save();
-    }
-
     public function liff()
     {
         return view('line.welcome');
